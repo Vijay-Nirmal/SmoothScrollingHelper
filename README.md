@@ -10,7 +10,7 @@ Use SmoothScrollIntoView Helper to scroll the item into the view with animation.
 ## Syntax
 
 ```csharp
-await MyGridView.SmoothScrollIntoViewWithIndex(MyGridView.SelectedIndex, ItemPosition.Default, false);
+await listViewBase.SmoothScrollIntoViewWithIndex(MyGridView.SelectedIndex, ItemPosition.Default, false);
 ```
 
 ## Sample Output
@@ -42,7 +42,7 @@ Use SmoothScrollNavigation Helper to scroll the ListViewBase with buttons
 ## Syntax
 
 ```csharp
-await MyGridView.SmoothScrollIntoViewWithIndex(MyGridView.SelectedIndex, ItemPosition.Default, false);
+listViewBase.SmoothScrollNavigation(100, ScrollNavigationDirection.Left, false);
 ```
 
 ## Sample Output
@@ -57,9 +57,9 @@ await MyGridView.SmoothScrollIntoViewWithIndex(MyGridView.SelectedIndex, ItemPos
 | ScrollNavigationDirection | Enum | Direction of the scrolling |
 | DisableAnimation | bool | To disable the scrolling animation |
 
-### ItemPosition
+### ScrollNavigationDirection
 
-| ItemPosition | Description |
+| ScrollNavigationDirection | Description |
 |--------------|-------------|
 | Left | Scroll left |
 | Up | Scroll top |
