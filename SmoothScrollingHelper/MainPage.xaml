@@ -8,32 +8,36 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-                <TextBlock Name="CurrentIntex" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                <Button Name="GoToButton" Content="Go To" Click="GoToButton_Click" Margin="10,0,0,0"/>
-                <TextBox Name="GoToIntex" Width="50"/>
-                <Button Name="PreButton" Content="Previous" Click="PreButton_Click" Margin="10,0,0,0"/>
-                <Button Name="NextButton" Content="Next" Click="NextButton_Click"/>
+        <StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <TextBlock Name="CurrentIntex" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <Button Name="GoToButton" Content="Go To" Click="GoToButton_Click"/>
+            <TextBox Name="GoToIntex" Height="30" Width="50" Margin="0,0,10,0"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="LeftButton" FontFamily="Segoe MDL2 Assets" Content="&#xE00E;" Margin="0,0,5,0" Click="LeftButton_Click"/>
+                <StackPanel Orientation="Vertical">
+                    <Button Name="UpButton" FontFamily="Segoe MDL2 Assets" Content="&#xE010;" Margin="0,0,0,5" Click="UpButton_Click"/>
+                    <Button Name="DownButton" FontFamily="Segoe MDL2 Assets" Content="&#xE011;" Click="DownButton_Click"/>
+                </StackPanel>
+                <Button Name="RightButton" FontFamily="Segoe MDL2 Assets" Content="&#xE00F;" Margin="5,0,0,0" Click="RightButton_Click"/>
             </StackPanel>
-
-            <GridView x:Name="MyGridView" SelectionChanged="MyGridView_SelectionChangedAsync" Margin="0,30,0,0" ItemsSource="{x:Bind ItemsSourceCollection}" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-                <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="local:ItemSource">
-                        <Grid Width="100" Height="100" Background="Red" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Grid Width="80" Height="80" Background="Green" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock Text="{x:Bind Name, Mode=OneWay}" FontSize="48" FontWeight="ExtraBlack" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Grid>
-                        </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-                <GridView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </GridView.ItemsPanel>
-            </GridView>
-            
         </StackPanel>
+
+        <GridView x:Name="MyGridView" Margin="0,30,0,0" SelectionChanged="MyGridView_SelectionChangedAsync" ItemsSource="{x:Bind ItemsSourceCollection}" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:ItemSource">
+                    <Grid Width="100" Height="100" Background="Red" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid Width="80" Height="80" Background="Green" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="{x:Bind Name, Mode=OneWay}" FontSize="48" FontWeight="ExtraBlack" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <!--<GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>-->
+        </GridView>
     </Grid>
+    
 </Page>
