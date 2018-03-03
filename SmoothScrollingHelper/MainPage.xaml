@@ -58,7 +58,7 @@
             </GridView.ItemTemplate>
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <ItemsStackPanel Orientation="Horizontal"/>
+                    <StackPanel Orientation="Horizontal"/>
                     <!--<ItemsWrapGrid MaximumRowsOrColumns="1" Orientation="Vertical"/>-->
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
