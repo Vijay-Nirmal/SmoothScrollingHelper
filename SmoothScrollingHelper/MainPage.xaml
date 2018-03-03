@@ -5,14 +5,38 @@
     xmlns:local="using:SmoothScrollingHelper"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Margin="0,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <TextBlock Name="CurrentIntex" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <controls:DropShadowPanel BlurRadius="10" ShadowOpacity="0.5" Margin="10">
+            <controls:WrapPanel VerticalSpacing="10" HorizontalSpacing="20" Background="White">
+                <StackPanel Background="White" Orientation="Horizontal" Height="60" CornerRadius="10" Padding="10">
+                    <TextBlock Text="ItemPlacement" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox Name="ItemPlacementComboBox" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Background="White" Orientation="Horizontal" Height="60" CornerRadius="10" Padding="10">
+                    <TextBlock Text="DisableAnimation" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ToggleSwitch Name="DisableAnimationToggleSwitch" OffContent="False" OnContent="True"/>
+                </StackPanel>
+                <StackPanel Background="White" Orientation="Horizontal" Height="60" CornerRadius="10" Padding="10">
+                    <TextBlock Text="ScrollIfVisibile" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ToggleSwitch Name="ScrollIfVisibileToggleSwitch" IsOn="True" OffContent="False" OnContent="True"/>
+                </StackPanel>
+                <StackPanel Background="White" Orientation="Horizontal" Height="60" CornerRadius="10" Padding="10">
+                    <TextBlock Text="AdditionalHorizontalOffset" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox Name="AdditionalHorizontalOffsetTextBox" Height="30" Width="50" Margin="0,0,10,0"/>
+                </StackPanel>
+                <StackPanel Background="White" Orientation="Horizontal" Height="60" CornerRadius="10" Padding="10">
+                    <TextBlock Text="AdditionalVerticalOffset" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox Name="AdditionalVerticalOffsetTextBox" Height="30" Width="50" Margin="0,0,10,0"/>
+                </StackPanel>
+            </controls:WrapPanel>
+        </controls:DropShadowPanel>
+        <StackPanel Margin="0,20,0,20" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Button Name="GoToButton" Content="Go To" Click="GoToButton_Click"/>
             <TextBox Name="GoToIntex" Height="30" Width="50" Margin="0,0,10,0"/>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Visibility="Visible">
                 <Button Name="LeftButton" FontFamily="Segoe MDL2 Assets" Content="&#xE00E;" Margin="0,0,5,0" Click="LeftButton_Click"/>
                 <StackPanel Orientation="Vertical">
                     <Button Name="UpButton" FontFamily="Segoe MDL2 Assets" Content="&#xE010;" Margin="0,0,0,5" Click="UpButton_Click"/>
@@ -22,22 +46,23 @@
             </StackPanel>
         </StackPanel>
 
-        <GridView x:Name="MyGridView" Margin="0,30,0,0" SelectionChanged="MyGridView_SelectionChangedAsync" ItemsSource="{x:Bind ItemsSourceCollection}" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        <GridView x:Name="MyGridView" ItemsSource="{x:Bind ItemsSourceCollection}" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="local:ItemSource">
+                <DataTemplate>
                     <Grid Width="100" Height="100" Background="Red" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Grid Width="80" Height="80" Background="Green" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock Text="{x:Bind Name, Mode=OneWay}" FontSize="48" FontWeight="ExtraBlack" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding}" FontSize="48" FontWeight="ExtraBlack" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
-            <!--<GridView.ItemsPanel>
+            <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
+                    <ItemsStackPanel Orientation="Horizontal"/>
+                    <!--<ItemsWrapGrid MaximumRowsOrColumns="1" Orientation="Vertical"/>-->
                 </ItemsPanelTemplate>
-            </GridView.ItemsPanel>-->
+            </GridView.ItemsPanel>
         </GridView>
-    </Grid>
-    
+    </StackPanel>
+
 </Page>
