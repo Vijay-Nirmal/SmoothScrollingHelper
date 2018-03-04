@@ -13,10 +13,10 @@ Use SmoothScrollIntoView Helper to scroll the item into the view with animation.
 
 ```csharp
 // Scrolling with index
-await MyGridView.SmoothScrollIntoViewWithIndex(index: int, itemPlacement: ItemPlacement, disableAnimation: bool, scrollIfVisibile: bool, horizontalOffset: int, verticalOffset: int);
+await MyGridView.SmoothScrollIntoViewWithIndex(index: int, itemPlacement: ItemPlacement, disableAnimation: bool, scrollIfVisibile: bool, additionalHorizontalOffset: int, additionalVerticalOffset: int);
 
 // Scrolling with item
-await MyGridView.SmoothScrollIntoViewWithItem(item: object, itemPlacement: ItemPlacement, disableAnimation: bool, scrollIfVisibile: bool, horizontalOffset: int, verticalOffset: int);
+await MyGridView.SmoothScrollIntoViewWithItem(item: object, itemPlacement: ItemPlacement, disableAnimation: bool, scrollIfVisibile: bool, additionalHorizontalOffset: int, additionalVerticalOffset: int);
 ```
 
 ## Sample Output
@@ -39,8 +39,8 @@ await MyGridView.SmoothScrollIntoViewWithItem(item: object, itemPlacement: ItemP
 | itemPosition | Enum | Specify the position of the Item after scrolling |
 | disableAnimation | bool | To disable the scrolling animation |
 | scrollIfVisibile | bool | Set `true` to scroll even if the scroll to item is visible so that the item will be aligned depend upon `itemPosition` |
-| horizontalOffset | bool | Give addition horizontal offset |
-| verticalOffset | bool | Give addition vertical offset |
+| additionalHorizontalOffset | bool | Give addition horizontal offset |
+| additionalVerticalOffset | bool | Give addition vertical offset |
 
 ### ItemPosition
 
