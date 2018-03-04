@@ -9,21 +9,38 @@ Use SmoothScrollIntoView Helper to scroll the item into the view with animation.
 
 ## Syntax
 
+**C#**
+
 ```csharp
-await listViewBase.SmoothScrollIntoViewWithIndex(MyGridView.SelectedIndex, ItemPosition.Default, false);
+// Scrolling with index
+await MyGridView.SmoothScrollIntoViewWithIndex(index: int, itemPlacement: ItemPlacement, disableAnimation: bool, scrollIfVisibile: bool, horizontalOffset: int, verticalOffset: int);
+
+// Scrolling with item
+await MyGridView.SmoothScrollIntoViewWithItem(item: object, itemPlacement: ItemPlacement, disableAnimation: bool, scrollIfVisibile: bool, horizontalOffset: int, verticalOffset: int);
 ```
 
 ## Sample Output
 
 ![SmoothScrollIntoView Helper](https://github.com/Vijay-Nirmal/SmoothScrollingHelper/blob/master/SmoothScrollIntoViewSampleOutput.gif)
 
-## Properties
+## Methods
+
+| Methods | Return Type | Description |
+| -- | -- | -- |
+| SmoothScrollIntoViewWithIndex(int, ItemPlacement, bool, bool, int, int) | Task | SmoothScrollIntoView With index number |
+| SmoothScrollIntoViewWithItem(object, ItemPlacement, bool, bool, int, int) | Task | SmoothScrollIntoView With item object |
+
+## Method params
 
 | Properties | Type | Description |
 |------------|------|-------------|
-| Intex      | int  | Intex of the item to be scrolled |
-| ItemPosition | Enum | Specify the position of the Item after scrolling |
-| DisableAnimation | bool | To disable the scrolling animation |
+| intex      | int  | Intex of the item to be scrolled |
+| item      | int  | Intex of the item to be scrolled |
+| itemPosition | Enum | Specify the position of the Item after scrolling |
+| disableAnimation | bool | To disable the scrolling animation |
+| scrollIfVisibile | bool | Set `true` to scroll even if the scroll to item is visible so that the item will be aligned depend upon `itemPosition` |
+| horizontalOffset | bool | Give addition horizontal offset |
+| verticalOffset | bool | Give addition vertical offset |
 
 ### ItemPosition
 
